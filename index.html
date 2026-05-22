@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuestionario de Asexualidad</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f3e7ff, #d9f0ff);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }.container {
+  background: white;
+  max-width: 850px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+h1 {
+  text-align: center;
+  color: #6a1b9a;
+  margin-bottom: 30px;
+}
+
+.question {
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #f8f8ff;
+}
+
+.question p {
+  margin: 0 0 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+label {
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+button {
+  display: block;
+  margin: 30px auto;
+  background: #6a1b9a;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #4a148c;
+}
+
+#resultado {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #222;
+}
+
+#qrcode {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.info-qr {
+  text-align: center;
+  margin-top: 15px;
+  color: #555;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cuestionario de Asexualidad</h1><form id="quizForm">
+
+  <div class="question">
+    <p>1. ¿Consideras que tu orientación sexual es clara y definida en este aspecto?</p>
+    <label><input type="radio" name="q1"> Sí</label>
+    <label><input type="radio" name="q1"> No</label>
+  </div>
+
+  <div class="question">
+    <p>2. ¿Te resulta difícil encajar en la expectativa social sobre las relaciones?</p>
+    <label><input type="radio" name="q2"> Sí</label>
+    <label><input type="radio" name="q2"> No</label>
+  </div>
+
+  <div class="question">
+    <p>3. ¿Te sientes cómodo o cómoda con la etiqueta que describe tu orientación sexual?</p>
+    <label><input type="radio" name="q3"> Sí</label>
+    <label><input type="radio" name="q3"> No</label>
+  </div>
+
+  <div class="question">
+    <p>4. ¿Has tenido dudas sobre cómo describir tu forma de sentir?</p>
+    <label><input type="radio" name="q4"> Sí</label>
+    <label><input type="radio" name="q4"> No</label>
+  </div>
+
+  <div class="question">
+    <p>5. ¿Sientes que la sociedad entiende poco tu forma de relacionarte?</p>
+    <label><input type="radio" name="q5"> Sí</label>
+    <label><input type="radio" name="q5"> No</label>
+  </div>
+
+  <div class="question">
+    <p>6. ¿Te identificas con comunidades sobre la asexualidad?</p>
+    <label><input type="radio" name="q6"> Sí</label>
+    <label><input type="radio" name="q6"> No</label>
+  </div>
+
+  <div class="question">
+    <p>7. ¿Crees que tu identidad sexual es estable en este momento?</p>
+    <label><input type="radio" name="q7"> Sí</label>
+    <label><input type="radio" name="q7"> No</label>
+  </div>
+
+  <div class="question">
+    <p>8. ¿Crees que todas las personas asexuales son arrománticas?</p>
+    <label><input type="radio" name="q8"> Sí</label>
+    <label><input type="radio" name="q8"> No</label>
+  </div>
+
+  <div class="question">
+    <p>9. ¿Crees que la asexualidad es una condición que se cura con tratamiento?</p>
+    <label><input type="radio" name="q9"> Sí</label>
+    <label><input type="radio" name="q9"> No</label>
+  </div>
+
+  <div class="question">
+    <p>10. ¿Piensas que la asexualidad se debe a falta de experiencia sexual?</p>
+    <label><input type="radio" name="q10"> Sí</label>
+    <label><input type="radio" name="q10"> No</label>
+  </div>
+
+  <button type="button" onclick="mostrarMensaje()">Enviar respuestas</button>
+</form>
+
+<div id="resultado"></div>
+
+<div id="qrcode"></div>
+<p class="info-qr">Escanea el QR para abrir esta página web.</p>
+
+  </div>  <script>
+    function mostrarMensaje() {
+      document.getElementById('resultado').innerHTML = '¡Gracias por responder el cuestionario!';
+    }
+
+    // Generar QR con enlace actual
+    new QRCode(document.getElementById('qrcode'), {
+      text: window.location.href,
+      width: 180,
+      height: 180,
+      colorDark: '#000000',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script></body>
+</html>
