@@ -1,174 +1,266 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cuestionario de Asexualidad</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f3e7ff, #d9f0ff);
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-    }.container {
-  background: white;
-  max-width: 850px;
-  width: 100%;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
 
-h1 {
-  text-align: center;
-  color: #6a1b9a;
-  margin-bottom: 30px;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.question {
-  margin-bottom: 25px;
-  padding: 15px;
-  border-radius: 12px;
-  background: #f8f8ff;
-}
+<title>Cuestionario de Asexualidad</title>
 
-.question p {
-  margin: 0 0 10px;
-  font-weight: bold;
-  color: #333;
-}
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
 
-label {
-  margin-right: 20px;
-  font-size: 16px;
-}
+<!-- QR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-button {
-  display: block;
-  margin: 30px auto;
-  background: #6a1b9a;
-  color: white;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+<!-- ICONOS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-button:hover {
-  background: #4a148c;
-}
-
-#resultado {
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 20px;
-  color: #222;
-}
-
-#qrcode {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-}
-
-.info-qr {
-  text-align: center;
-  margin-top: 15px;
-  color: #555;
-}
-
-  </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Cuestionario de Asexualidad</h1><form id="quizForm">
 
-  <div class="question">
-    <p>1. ¿Consideras que tu orientación sexual es clara y definida en este aspecto?</p>
-    <label><input type="radio" name="q1"> Sí</label>
-    <label><input type="radio" name="q1"> No</label>
-  </div>
+<!-- FONDO -->
+<div class="fondo"></div>
 
-  <div class="question">
-    <p>2. ¿Te resulta difícil encajar en la expectativa social sobre las relaciones?</p>
-    <label><input type="radio" name="q2"> Sí</label>
-    <label><input type="radio" name="q2"> No</label>
-  </div>
+<!-- FORMULARIO -->
+<div class="contenedor" id="contenedorFormulario">
 
-  <div class="question">
-    <p>3. ¿Te sientes cómodo o cómoda con la etiqueta que describe tu orientación sexual?</p>
-    <label><input type="radio" name="q3"> Sí</label>
-    <label><input type="radio" name="q3"> No</label>
-  </div>
+    <div class="header">
 
-  <div class="question">
-    <p>4. ¿Has tenido dudas sobre cómo describir tu forma de sentir?</p>
-    <label><input type="radio" name="q4"> Sí</label>
-    <label><input type="radio" name="q4"> No</label>
-  </div>
+        <div class="icono">
+            <i class="fa-solid fa-heart"></i>
+        </div>
 
-  <div class="question">
-    <p>5. ¿Sientes que la sociedad entiende poco tu forma de relacionarte?</p>
-    <label><input type="radio" name="q5"> Sí</label>
-    <label><input type="radio" name="q5"> No</label>
-  </div>
+        <h1>Cuestionario de Asexualidad</h1>
 
-  <div class="question">
-    <p>6. ¿Te identificas con comunidades sobre la asexualidad?</p>
-    <label><input type="radio" name="q6"> Sí</label>
-    <label><input type="radio" name="q6"> No</label>
-  </div>
+        <p>
+            Responde todas las preguntas obligatoriamente.
+        </p>
 
-  <div class="question">
-    <p>7. ¿Crees que tu identidad sexual es estable en este momento?</p>
-    <label><input type="radio" name="q7"> Sí</label>
-    <label><input type="radio" name="q7"> No</label>
-  </div>
+    </div>
 
-  <div class="question">
-    <p>8. ¿Crees que todas las personas asexuales son arrománticas?</p>
-    <label><input type="radio" name="q8"> Sí</label>
-    <label><input type="radio" name="q8"> No</label>
-  </div>
+    <form id="formulario">
 
-  <div class="question">
-    <p>9. ¿Crees que la asexualidad es una condición que se cura con tratamiento?</p>
-    <label><input type="radio" name="q9"> Sí</label>
-    <label><input type="radio" name="q9"> No</label>
-  </div>
+        <!-- PREGUNTA 1 -->
+        <div class="pregunta">
+            <p>1. ¿Consideras que tu orientación sexual es clara y definida en este aspecto?</p>
 
-  <div class="question">
-    <p>10. ¿Piensas que la asexualidad se debe a falta de experiencia sexual?</p>
-    <label><input type="radio" name="q10"> Sí</label>
-    <label><input type="radio" name="q10"> No</label>
-  </div>
+            <div class="opciones">
+                <label><input type="radio" name="p1" required> Sí</label>
+                <label><input type="radio" name="p1"> No</label>
+            </div>
+        </div>
 
-  <button type="button" onclick="mostrarMensaje()">Enviar respuestas</button>
-</form>
+        <!-- PREGUNTA 2 -->
+        <div class="pregunta">
+            <p>2. ¿Te resulta difícil encajar en la expectativa social sobre las relaciones?</p>
 
-<div id="resultado"></div>
+            <div class="opciones">
+                <label><input type="radio" name="p2" required> Sí</label>
+                <label><input type="radio" name="p2"> No</label>
+            </div>
+        </div>
 
-<div id="qrcode"></div>
-<p class="info-qr">Escanea el QR para abrir esta página web.</p>
+        <!-- PREGUNTA 3 -->
+        <div class="pregunta">
+            <p>3. ¿Te sientes cómodo o cómoda con la etiqueta que describe tu orientación sexual?</p>
 
-  </div>  <script>
-    function mostrarMensaje() {
-      document.getElementById('resultado').innerHTML = '¡Gracias por responder el cuestionario!';
-    }
+            <div class="opciones">
+                <label><input type="radio" name="p3" required> Sí</label>
+                <label><input type="radio" name="p3"> No</label>
+            </div>
+        </div>
 
-    // Generar QR con enlace específico
-    new QRCode(document.getElementById('qrcode'), {
-      text: 'https://cristianrmstudios.github.io/Cuestionario_De_Sexualidad/',
-      width: 180,
-      height: 180,
-      colorDark: '#000000',
-      colorLight: '#ffffff',
-      correctLevel: QRCode.CorrectLevel.H
+        <!-- PREGUNTA 4 -->
+        <div class="pregunta">
+            <p>4. ¿Has tenido dudas sobre cómo describir tu forma de sentir?</p>
+
+            <div class="opciones">
+                <label><input type="radio" name="p4" required> Sí</label>
+                <label><input type="radio" name="p4"> No</label>
+            </div>
+        </div>
+
+        <!-- PREGUNTA 5 -->
+        <div class="pregunta">
+            <p>5. ¿Sientes que la sociedad entiende poco tu forma de relacionarte?</p>
+
+            <div class="opciones">
+                <label><input type="radio" name="p5" required> Sí</label>
+                <label><input type="radio" name="p5"> No</label>
+            </div>
+        </div>
+
+        <!-- PREGUNTA 6 -->
+        <div class="pregunta">
+            <p>6. ¿Te identificas con comunidades sobre la asexualidad?</p>
+
+            <div class="opciones">
+                <label><input type="radio" name="p6" required> Sí</label>
+                <label><input type="radio" name="p6"> No</label>
+            </div>
+        </div>
+
+        <!-- PREGUNTA 7 -->
+        <div class="pregunta">
+            <p>7. ¿Crees que tu identidad sexual es estable en este momento?</p>
+
+            <div class="opciones">
+                <label><input type="radio" name="p7" required> Sí</label>
+                <label><input type="radio" name="p7"> No</label>
+            </div>
+        </div>
+
+        <!-- PREGUNTA 8 -->
+        <div class="pregunta">
+            <p>8. ¿Crees que todas las personas asexuales son arrománticas?</p>
+
+            <div class="opciones">
+                <label><input type="radio" name="p8" required> Sí</label>
+                <label><input type="radio" name="p8"> No</label>
+            </div>
+        </div>
+
+        <!-- PREGUNTA 9 -->
+        <div class="pregunta">
+            <p>9. ¿Crees que la asexualidad es una condición que se cura con tratamiento?</p>
+
+            <div class="opciones">
+                <label><input type="radio" name="p9" required> Sí</label>
+                <label><input type="radio" name="p9"> No</label>
+            </div>
+        </div>
+
+        <!-- PREGUNTA 10 -->
+        <div class="pregunta">
+            <p>10. ¿Piensas que la asexualidad se debe a falta de experiencia sexual?</p>
+
+            <div class="opciones">
+                <label><input type="radio" name="p10" required> Sí</label>
+                <label><input type="radio" name="p10"> No</label>
+            </div>
+        </div>
+
+        <!-- BOTON -->
+        <button type="submit">
+            Enviar Respuestas
+        </button>
+
+    </form>
+
+</div>
+
+<!-- PANTALLA FINAL -->
+<div class="pantalla-final" id="pantallaFinal">
+
+    <div class="gracias-box">
+
+        <div class="check">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <h1>Gracias por responder</h1>
+
+        <p>
+            Tus respuestas fueron enviadas correctamente.
+        </p>
+
+        <!-- RESPONDIDO -->
+        <div class="respondido">
+
+            <h3>✅ Cuestionario completado</h3>
+
+            <div class="datos">
+
+                <p id="fechaRespuesta"></p>
+
+                <p id="horaRespuesta"></p>
+
+                <p id="cantidadRespuestas"></p>
+
+            </div>
+
+        </div>
+
+        <!-- QR -->
+        <div id="qrcode"></div>
+
+        <p class="textoQR">
+            Escanea el QR para volver al cuestionario
+        </p>
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+
+const formulario = document.getElementById("formulario");
+const pantallaFinal = document.getElementById("pantallaFinal");
+const contenedor = document.getElementById("contenedorFormulario");
+
+// DATOS
+const fechaTexto = document.getElementById("fechaRespuesta");
+const horaTexto = document.getElementById("horaRespuesta");
+const cantidadTexto = document.getElementById("cantidadRespuestas");
+
+// ENVIAR
+formulario.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    // FECHA
+    const fechaActual = new Date();
+
+    const fecha = fechaActual.toLocaleDateString("es-MX", {
+
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+
     });
-  </script></body>
+
+    // HORA
+    const hora = fechaActual.toLocaleTimeString("es-MX", {
+
+        hour: "2-digit",
+        minute: "2-digit"
+
+    });
+
+    // RESPUESTAS
+    const respuestasContestadas =
+    document.querySelectorAll('input[type="radio"]:checked').length;
+
+    // MOSTRAR
+    fechaTexto.innerHTML = "📅 Fecha: " + fecha;
+
+    horaTexto.innerHTML = "⏰ Hora: " + hora;
+
+    cantidadTexto.innerHTML =
+    "📝 Respuestas contestadas: " + respuestasContestadas + "/10";
+
+    // OCULTAR FORMULARIO
+    contenedor.style.display = "none";
+
+    // MOSTRAR FINAL
+    pantallaFinal.style.display = "flex";
+
+});
+
+// GENERAR QR
+new QRCode(document.getElementById("qrcode"), {
+
+    text: "https://cristianrmstudios.github.io/Cuestionario_De_Sexualidad/",
+    width: 220,
+    height: 220
+
+});
+
+</script>
+
+</body>
 </html>
