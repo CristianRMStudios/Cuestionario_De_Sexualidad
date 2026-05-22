@@ -161,9 +161,9 @@ button:hover {
       document.getElementById('resultado').innerHTML = '¡Gracias por responder el cuestionario!';
     }
 
-    // Generar QR con enlace actual
+    // Generar QR con enlace específico
     new QRCode(document.getElementById('qrcode'), {
-      text: window.location.href,
+      text: 'https://cristianrmstudios.github.io/Cuestionario_De_Sexualidad/',
       width: 180,
       height: 180,
       colorDark: '#000000',
